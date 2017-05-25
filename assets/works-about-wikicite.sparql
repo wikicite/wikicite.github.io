@@ -1,4 +1,4 @@
-SELECT ?date ?work ?workLabel ?topics
+SELECT ?type ?date ?work ?workLabel ?authors
 WITH {
   # works about WikiCite
   SELECT DISTINCT ?work WHERE {
@@ -7,16 +7,24 @@ WITH {
   LIMIT 500
 } AS %works
 WITH {
-  SELECT (MAX(?dates) as ?datetime) ?work (GROUP_CONCAT(?topic_label; separator=" // ") AS ?topics) WHERE {
+  SELECT (MAX(?dates) as ?datetime) ?work (GROUP_CONCAT(?author_name; separator=", ") AS ?authors) 
+  WHERE {
     INCLUDE %works
-    ?work wdt:P921 ?topic . 
+    ?work wdt:P50 ?author . # TOOD: only covers authors with Wikidata item
     OPTIONAL { ?work wdt:P577 ?dates . }
-    ?topic rdfs:label ?topic_label .  FILTER (lang(?topic_label) = 'en')
+    ?author rdfs:label ?author_name .  FILTER (lang(?author_name) = 'en')
   }
   GROUP BY ?work
 } AS %result
 WHERE {
   INCLUDE %result
+  { 
+    SELECT ?work (GROUP_CONCAT(?someTypeLabel; separator=", ") AS ?type) WHERE {
+      INCLUDE %works
+      ?work wdt:P31 ?someType .
+      ?someType rdfs:label ?someTypeLabel .  FILTER (lang(?someTypeLabel) = 'en')
+    } GROUP BY ?work 
+  }
   BIND(xsd:date(?datetime) AS ?date)
   SERVICE wikibase:label { bd:serviceParam wikibase:language "en,da,de,es,fr,jp,nl,no,ru,sv,zh". }
 }
