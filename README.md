@@ -10,3 +10,6 @@ Existing pages about WikiCite are part of other MediaWiki wikis with all of thei
 
 The current page is build with Jekyll and hosted via GitHub pages. Content can be modified in Markdown format and YAML configuration files or directly in HTML.
 
+## License
+
+JavaScript licensed under GPL, based on [Scholia](https://tools.wmflabs.org/scholia/) by Finn Årup Nielsen.
