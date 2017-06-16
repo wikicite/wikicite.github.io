@@ -10,9 +10,15 @@ WITH {
   SELECT (MAX(?dates) as ?datetime) ?work (GROUP_CONCAT(?author_name; separator=", ") AS ?authors) 
   WHERE {
     INCLUDE %works
-    ?work wdt:P50 ?author . # TOOD: only covers authors with Wikidata item
-    OPTIONAL { ?work wdt:P577 ?dates . }
-    ?author rdfs:label ?author_name .  FILTER (lang(?author_name) = 'en')
+    {
+      ?work wdt:P50 ?author .
+      OPTIONAL { ?work wdt:P577 ?dates }
+      ?author rdfs:label ?author_name .  FILTER (lang(?author_name) = 'en')
+    }
+    UNION {
+      ?work wdt:P2093 ?author_name
+      OPTIONAL { ?work wdt:P577 ?dates }            
+    }
   }
   GROUP BY ?work
 } AS %result
