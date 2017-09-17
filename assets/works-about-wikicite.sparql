@@ -1,13 +1,20 @@
-SELECT ?type ?date ?work ?workLabel ?authors
+SELECT ?type ?date ?work ?workLabel ?authors ?topics
 WITH {
-  # works about WikiCite
   SELECT DISTINCT ?work WHERE {
-    ?work wdt:P921 / (wdt:P361+ | wdt:P1269+ | (wdt:P31* / wdt:P279*) ) wd:Q30035267 .
+    # works about WikiCite
+    {
+      ?work wdt:P921 / (wdt:P361+ | wdt:P1269+ | (wdt:P31* / wdt:P279*) ) wd:Q30035267
+    }
+    # works about Wikidata and citation
+    UNION {
+      ?work wdt:P921 / (wdt:P361+ | wdt:P1269+ | (wdt:P31* / wdt:P279*) ) wd:Q52 , wd:Q1713
+    }
   }
   LIMIT 500
 } AS %works
 WITH {
-  SELECT (MAX(?dates) as ?datetime) ?work (GROUP_CONCAT(?author_name; separator=", ") AS ?authors) 
+  SELECT (MAX(?dates) as ?datetime) ?work
+         (GROUP_CONCAT(?author_name; separator=", ") AS ?authors)
   WHERE {
     INCLUDE %works
     {
@@ -17,19 +24,28 @@ WITH {
     }
     UNION {
       ?work wdt:P2093 ?author_name
-      OPTIONAL { ?work wdt:P577 ?dates }            
+      OPTIONAL { ?work wdt:P577 ?dates }
     }
   }
   GROUP BY ?work
+} AS %worksWithAuthors
+WITH {
+  SELECT ?work ?datetime ?authors (GROUP_CONCAT(?topic_label; separator=", ") AS ?topics) 
+  WHERE {
+    INCLUDE %worksWithAuthors {
+      ?work wdt:P921 ?topic . 
+      ?topic rdfs:label ?topic_label .  FILTER (lang(?topic_label) = 'en')      
+  } 
+  } GROUP BY ?work ?datetime ?authors
 } AS %result
 WHERE {
   INCLUDE %result
-  { 
+  {
     SELECT ?work (GROUP_CONCAT(?someTypeLabel; separator=", ") AS ?type) WHERE {
       INCLUDE %works
       ?work wdt:P31 ?someType .
       ?someType rdfs:label ?someTypeLabel .  FILTER (lang(?someTypeLabel) = 'en')
-    } GROUP BY ?work 
+    } GROUP BY ?work
   }
   BIND(xsd:date(?datetime) AS ?date)
   SERVICE wikibase:label { bd:serviceParam wikibase:language "en,da,de,es,fr,jp,nl,no,ru,sv,zh". }
