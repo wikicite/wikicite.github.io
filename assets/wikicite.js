@@ -8,16 +8,32 @@ $(document).ready(function() {
   if (table.length) {
     $.getJSON('https://cors.io/?https://github.com/gbv/wikicite-data/raw/master/stats.json', function(stats) {
 
-      var rows = [];
+      var rows = []
+      var publicationChart = []
+      var pubtypesChart = []
+
       for (let date in stats) {        
         stats[date].date = date
         if (!stats[date].publications) {
           stats[date].publications = {}
-        }
+        }        
         rows.push(stats[date])
+
+        var p = stats[date].publications
+        if (p.items) {
+          publicationChart.push({
+            x: new Date(date),
+            y: p.items
+          })
+        }
+        if (stats[date].pubtypes) {
+          pubtypesChart.push({
+            x: new Date(date),
+            y: stats[date].pubtypes
+          })
+        }
       }
-
-
+    
       function fileSize(size) {
         if (!size) return '';
         var e = (Math.log(size) / Math.log(1e3)) | 0;
@@ -70,6 +86,53 @@ $(document).ready(function() {
           },
         ]
       })
+
+      var chart = $('#stats-chart')
+      if (chart.length) {
+
+        chart = new Chart(chart, {
+          type: 'line',
+          data: {
+            datasets: [{
+              label: 'publication items',
+              data: publicationChart,
+              type: 'line',
+              fill: false,
+              yAxisID: 'left-axis',
+              borderColor: '#33CCCC',
+              backgroundColor: '#33CCCC',
+            },{
+              label: 'publication types',
+              data: pubtypesChart,
+              type: 'line',
+              fill: false,
+              yAxisID: 'right-axis',
+              borderColor: '#AAAAAA',
+              backgroundColor: '#AAAAAA',
+              pointRadius: 1,
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              xAxes: [{
+                type: 'time',
+                distribution: 'series',
+                ticks: { source: 'labels' }
+              }],
+              yAxes: [{
+                position: 'left',
+                id: 'left-axis'
+              },{
+                position: 'right',
+                id: 'right-axis',
+                gridLines: { drawOnChartArea: false },
+              }]
+            }
+          }
+        })
+      }
+
     })
   }
 })

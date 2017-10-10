@@ -8,3 +8,5 @@ Based on selected [Wikidata dumps](https://www.wikidata.org/wiki/Wikidata:Databa
 The number of publication is counted from all instances of publication types. Publication types include all subclasses of [Q732577](http://www.wikidata.org/entity/Q732577) (publication) and/or [Q191067](http://www.wikidata.org/entity/Q191067) (article). The compressed dump size of publications only includes truthy statements without qualifiers.
 
 <table class="table display" id="wikicite-data-stats"></table>
+
+<canvas id="stats-chart"></canvas>
