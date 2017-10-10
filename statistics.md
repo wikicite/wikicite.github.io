@@ -10,3 +10,5 @@ The number of publication is counted from all instances of publication types. Pu
 <table class="table display" id="wikicite-data-stats"></table>
 
 <canvas id="stats-chart"></canvas>
+
+[download raw data](https://github.com/gbv/wikicite-data/blob/master/stats.json)
