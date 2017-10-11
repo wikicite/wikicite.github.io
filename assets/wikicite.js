@@ -117,13 +117,18 @@ $(document).ready(function() {
             scales: {
               xAxes: [{
                 type: 'time',
-                distribution: 'series',
-                ticks: { source: 'labels' }
+                ticks: { 
+                  callback: function(value) {
+                    return moment(value).format('YYYY-MM-DD')
+                  }
+                }
               }],
               yAxes: [{
+                //type: 'logarithmic',
                 position: 'left',
                 id: 'left-axis'
               },{
+                //type: 'logarithmic',
                 position: 'right',
                 id: 'right-axis',
                 gridLines: { drawOnChartArea: false },
