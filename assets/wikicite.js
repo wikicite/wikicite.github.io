@@ -83,6 +83,12 @@ $(document).ready(function() {
             className: 'dt-right',
             render: numberFormat,
             defaultContent: '',
+          },{
+            title: 'Citations', 
+            data: 'publications.citations', 
+            className: 'dt-right',
+            render: numberFormat,
+            defaultContent: '',
           },
         ]
       })
