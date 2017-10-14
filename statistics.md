@@ -11,4 +11,4 @@ The number of publication is counted from all instances of publication types. Pu
 
 <canvas id="stats-chart"></canvas>
 
-[download raw data (JSON)](https://github.com/wikicite/wikicite-data/blob/master/stats.json)
+[raw data (JSON)](wikicite-data/stats.json)

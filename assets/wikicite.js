@@ -6,7 +6,7 @@ $(document).ready(function() {
 
   var table = $('#wikicite-data-stats');
   if (table.length) {
-    $.getJSON('https://cors.io/?https://github.com/wikicite/wikicite-data/raw/master/stats.json', function(stats) {
+    $.getJSON('wikicite-data/stats.json', function(stats) {
 
       var rows = []
       var publicationChart = []
