@@ -10,7 +10,7 @@ $(document).ready(function() {
 
       var rows = []
       var publicationChart = []
-      var pubtypesChart = []
+      var citationsChart = []
 
       for (let date in stats) {        
         stats[date].date = date
@@ -26,10 +26,10 @@ $(document).ready(function() {
             y: p.items
           })
         }
-        if (stats[date].pubtypes) {
-          pubtypesChart.push({
+        if (p.citations) {
+          citationsChart.push({
             x: new Date(date),
-            y: stats[date].pubtypes
+            y: p.citations
           })
         }
       }
@@ -108,15 +108,13 @@ $(document).ready(function() {
               borderColor: '#33CCCC',
               backgroundColor: '#33CCCC',
             },{
-              label: 'publication types',
-              data: pubtypesChart,
+              label: 'citations',
+              data: citationsChart,
               type: 'line',
               fill: false,
               yAxisID: 'right-axis',
-              borderColor: '#AAAAAA',
-              backgroundColor: '#AAAAAA',
-              pointRadius: 1,
-              borderWidth: 1
+              borderColor: '#33CC33',
+              backgroundColor: '#33CC33',
             }]
           },
           options: {
