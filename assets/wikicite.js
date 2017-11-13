@@ -68,6 +68,20 @@ $(document).ready(function() {
 
       const numberFormat = $.fn.dataTable.render.number('&thinsp;','.',0)
 
+      let url = 'http://tinyurl.com/y9tp7tv5'
+      let footer = $('<tr><th>current</th></tr>')
+        .append('<td>')
+        .append('<td>')
+        .append('<td>')
+        .append($('<td>')
+          .append($('<a>',{href:'http://tinyurl.com/y9tp7tv5'}).append('list'))
+          .append('<br>')
+          .append($('<a>',{href:'https://angryloki.github.io/wikidata-graph-builder/?property=P279&item=Q732577&mode=reverse'}).append('graph'))
+        )
+        .append('<td>')
+      $(table).append($('<tfoot>').append(footer))
+
+     
       table = table.DataTable({ 
         data: rows,
         paging: false,
@@ -108,9 +122,6 @@ $(document).ready(function() {
             data: 'pubtypes', 
             className: 'dt-right',
             render: numberFormat,
-            /*function (value) {
-                return numberFormat(value)+"x"
-            },*/
             defaultContent: '',
           },{
             title: 'Citations', 
@@ -119,8 +130,10 @@ $(document).ready(function() {
             render: numberFormat,
             defaultContent: '',
           },
-        ]
+        ],
       })
+
+
 
       var chart = $('#stats-chart')
       if (chart.length) {
