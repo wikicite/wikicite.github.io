@@ -1,8 +1,34 @@
+const growthChartOptions = {
+  scales: {
+    xAxes: [{
+      type: 'time',
+      time: {
+        displayFormats: {
+          quarter: 'YYYY-MM'
+        }
+      }
+    }],
+    yAxes: [{
+      //type: 'logarithmic',
+      position: 'left',
+      id: 'left-axis'
+    },{
+      //type: 'logarithmic',
+      position: 'right',
+      id: 'right-axis',
+      gridLines: { drawOnChartArea: false },
+    }]
+  }
+}
+
 $(document).ready(function() {
   
-  $.get('/assets/works-about-wikicite.sparql', function(query) {
-    sparqlToDataTable(query,"#works-about-wikicite")
-  })
+  var elem = $('#works-about-wikicite')
+  if (elem.length) {
+    $.get('/assets/works-about-wikicite.sparql', function(query) {
+      sparqlToDataTable(query,elem) //"#works-about-wikicite")
+    })
+  }
 
   var table = $('#wikicite-data-stats');
   if (table.length) {
@@ -82,6 +108,9 @@ $(document).ready(function() {
             data: 'pubtypes', 
             className: 'dt-right',
             render: numberFormat,
+            /*function (value) {
+                return numberFormat(value)+"x"
+            },*/
             defaultContent: '',
           },{
             title: 'Citations', 
@@ -117,31 +146,9 @@ $(document).ready(function() {
               backgroundColor: '#33CC33',
             }]
           },
-          options: {
-            scales: {
-              xAxes: [{
-                type: 'time',
-                ticks: { 
-                  callback: function(value) {
-                    return moment(value).format('YYYY-MM-DD')
-                  }
-                }
-              }],
-              yAxes: [{
-                //type: 'logarithmic',
-                position: 'left',
-                id: 'left-axis'
-              },{
-                //type: 'logarithmic',
-                position: 'right',
-                id: 'right-axis',
-                gridLines: { drawOnChartArea: false },
-              }]
-            }
-          }
+          options: growthChartOptions
         })
       }
-
     })
   }
 })
