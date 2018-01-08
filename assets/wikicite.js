@@ -11,12 +11,20 @@ const growthChartOptions = {
     yAxes: [{
       //type: 'logarithmic',
       position: 'left',
-      id: 'left-axis'
+      id: 'left-axis',
+      ticks: { 
+        fontColor: '#33CCCC', 
+        callback: function(tick) { return tick.toLocaleString() }
+      },
     },{
       //type: 'logarithmic',
       position: 'right',
       id: 'right-axis',
       gridLines: { drawOnChartArea: false },
+      ticks: { 
+        fontColor: '#33CC33', 
+        callback: function(tick) { return tick.toLocaleString() }
+      },
     }]
   }
 }
@@ -119,7 +127,7 @@ $(document).ready(function() {
             className: 'dt-right',
           }, {
             title: 'Types', 
-            data: 'pubtypes', 
+            data: 'publications.types',
             className: 'dt-right',
             render: numberFormat,
             defaultContent: '',
