@@ -6,7 +6,10 @@ layout: default
 
 * [Wikimedia Meta-Wiki](https://meta.wikimedia.org/wiki/WikiCite)
 * [project Source MetaData at Wikidata](https://www.wikidata.org/wiki/Wikidata:WikiProject_Source_MetaData)
-* [WikiCite 2017](https://meta.wikimedia.org/wiki/WikiCite_2017) and [WikiCite 2016](https://meta.wikimedia.org/wiki/WikiCite_2016) conferences
+* WikiCite conferences
+    * [WikiCite 2018](https://meta.wikimedia.org/wiki/WikiCite_2018)
+    * [WikiCite 2017](https://meta.wikimedia.org/wiki/WikiCite_2017)
+    * [WikiCite 2016](https://meta.wikimedia.org/wiki/WikiCite_2016)
 * [wikicite-discuss mailing list](https://groups.google.com/a/wikimedia.org/d/forum/wikicite-discuss)
 * [@WikiCite](https://twitter.com/WikiCite) twitter account
 
