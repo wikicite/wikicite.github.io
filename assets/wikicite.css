@@ -10,8 +10,14 @@ caption {
 }
 ul.inline { 
   margin-left: 0; 
+  display: inline-block;
 }
 ul.inline li {
   display:inline;
   padding-right: 10px;
+}
+#citation {
+  background: #eee;
+  padding: 0.5em;
+  border-radius: 4px;
 }
