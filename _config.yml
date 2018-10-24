@@ -1,10 +1,8 @@
 title: WikiCite
-description: This is no official homepage of WikiCite but a minimal, general entry point. 
+description: no official homepage but an entry point to learn about WikiCite initiative
     
-pages:
- - path: publications
-
-#twitter_username: '@wikicite'
-github_username: 'wikicite'
+wikidata_item: Q30035267
+twitter_username: '@wikicite'
+github_username: wikicite
 
 theme: minima

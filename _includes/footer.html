@@ -7,16 +7,11 @@
         <p>
           {{ site.description | escape }}
         </p>
-        {% if site.github_username %}
-        <p>
-          {% include icon-github.html username=site.github_username %}
-        </p>
-        {% endif %}
-        {% if site.twitter_username %}
-        <p>
-          {% include icon-twitter.html username=site.twitter_username %}
-        </p>
-        {% endif %}
+        <ul class="inline">
+          <li>{% include icon-github.html username=site.github_username %}</li>
+          <li>{% include icon-twitter.html username=site.twitter_username %}</li>
+          <li>{% include wikidata-link.html id=site.wikidata_item %}</li>
+        </ul>
       </div>
     </div>
 

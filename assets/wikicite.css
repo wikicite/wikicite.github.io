@@ -1,5 +1,17 @@
 caption {
-    display: table-caption;
-    caption-side: bottom;
-    text-align: left;
+  display: table-caption;
+  caption-side: bottom;
+  text-align: left;
+}
+.wikidata-link {
+  background: url("wikidata-logo.svg") center left no-repeat;
+  padding-left: 20px;
+  background-size: 16px;
+}
+ul.inline { 
+  margin-left: 0; 
+}
+ul.inline li {
+  display:inline;
+  padding-right: 10px;
 }
