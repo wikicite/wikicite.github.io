@@ -19,3 +19,4 @@ layout: default
 * [WikiCite 2017](https://meta.wikimedia.org/wiki/WikiCite_2017) conference
 * [WikiCite 2016](https://meta.wikimedia.org/wiki/WikiCite_2016) conference
 
+**[Apply for funding to organize your own WikiCite event!](https://meta.wikimedia.org/wiki/WikiCite)**
