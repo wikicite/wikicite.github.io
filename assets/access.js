@@ -46,7 +46,7 @@ function lookupWikidata(id) {
     }
 
     $('#wikidata-link').attr('href', 'http://www.wikidata.org/entity/'+id)
-    $('#scholia-link').attr('href', 'https://tools.wmflabs.org/scholia/work/'+id)
+    $('#scholia-link').attr('href', 'https://scholia.toolforge.org/work/'+id)
     $('#wikidata-json-link').attr('href', 'http://www.wikidata.org/entity/'+id+'.json')
     $('#cited-item').show()
     showItem()
