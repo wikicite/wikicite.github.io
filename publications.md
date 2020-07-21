@@ -7,4 +7,4 @@ Publications and presentations *about* WikiCite and citations in Wikipedia as ca
 
 <table class="table display" id="works-about-wikicite"></table>
 
-More bibliometric analysis [at Scholia](https://tools.wmflabs.org/scholia/topic/Q30035267).
+More bibliometric analysis [at Scholia](https://scholia.toolforge.org/topic/Q30035267).
