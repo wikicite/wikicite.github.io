@@ -13,10 +13,11 @@ layout: default
 
 * [mailing list](https://groups.google.com/a/wikimedia.org/d/forum/wikicite-discuss)
 * [@WikiCite](https://twitter.com/WikiCite) twitter account
+* [Telegram group](https://t.me/joinchat/FeOscRxFj17BRhwX-Mg7Sg)
 
-* [WikiCite Satellite Cologne 2020](https://w.wiki/9jj)
+**Events**
+
+* [WikiCite Virtual Conference 2020](https://meta.wikimedia.org/wiki/WikiCite/Virtual_conference) 
 * [WikiCite 2018](https://meta.wikimedia.org/wiki/WikiCite_2018) conference
 * [WikiCite 2017](https://meta.wikimedia.org/wiki/WikiCite_2017) conference
 * [WikiCite 2016](https://meta.wikimedia.org/wiki/WikiCite_2016) conference
-
-**[Apply for funding to organize your own WikiCite event!](https://meta.wikimedia.org/wiki/WikiCite)**
