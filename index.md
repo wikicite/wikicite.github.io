@@ -17,6 +17,7 @@ layout: default
 
 **Events**
 
+* [WikiCite 2025](https://meta.wikimedia.org/wiki/WikiCite_2025) conference
 * [WikiCite Virtual Conference 2020](https://meta.wikimedia.org/wiki/WikiCite/Virtual_conference) 
 * [WikiCite 2018](https://meta.wikimedia.org/wiki/WikiCite_2018) conference
 * [WikiCite 2017](https://meta.wikimedia.org/wiki/WikiCite_2017) conference
